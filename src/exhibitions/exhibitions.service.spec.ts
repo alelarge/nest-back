@@ -29,4 +29,26 @@ describe('ExhibitionsService', () => {
       expect(service.exhibitions).toHaveLength(1);
     });
   })
+
+  describe('getExhibitions', () => {
+    it('should return all exhibitions', () => {
+      // Arrange
+      service.exhibitions = [
+        {
+          id: 1,
+          name: 'Exposition 1',
+        },
+        {
+          id: 2,
+          name: 'Exposition 2',
+        },
+      ];
+
+      // Act
+      const exhibitions = service.getExhibitions();
+
+      // Assert
+      expect(exhibitions).toEqual(service.exhibitions);
+    });
+  });
 });
